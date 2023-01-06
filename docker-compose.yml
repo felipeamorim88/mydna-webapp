@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  frontend:
+    build: 
+      context: .
+    image: react-docker
+    container_name: mydna_frontend
+    env_file: .env
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./:/home/app/react_docker
+      - /home/app/react_docker/node_modules
+    networks:
+      - mydna_app-network
+    command: npm run start
+
+networks:
+  mydna_app-network:
+    external: true

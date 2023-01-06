@@ -1,17 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Routes, Route, Outlet, Link, BrowserRouter } from "react-router-dom";
+import Professional from './pages/professional/';
+import Header from './pages/shared/header';
+import ProfessionalType from './pages/professional-type';
 
 
 function App() {
   return (
-<>
-<Routes>
-        <Route path="/" element={<Professional />}>
-          <Route path="about" element={<ProfessionalProfile />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Header/>}>
+        <Route path="/professional" element={<Professional />}/>
+        <Route path="/professional-type" element={<ProfessionalType />}/>
+
         </Route>
-      </Routes></>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
